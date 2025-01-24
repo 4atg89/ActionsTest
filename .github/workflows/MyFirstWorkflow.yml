@@ -18,5 +18,5 @@ jobs: # Здесь начинается описание "root"-раздела j
         run: tree
       
       - run: |
-          echo "Hello world, from ${{ github..actor }}."
+          echo "Hello world, from ${{ github.actor }}."
           echo "Current branch is '${{ github.ref }}'.”
