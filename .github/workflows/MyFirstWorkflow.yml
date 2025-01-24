@@ -1,0 +1,22 @@
+# First testing workflow to learn
+name: My First Workflow
+on: # Триггеры для запуска workflow
+  push:
+    branches: 
+      - main # Срабатывает при пуше в ветку main
+  workflow_dispatch:
+
+jobs: # Здесь начинается описание "root"-раздела jobs описывает что делать после того как тригер активизировался
+  first_job: # Уникальный идентификатор для задачи (job)
+    name: My first job # Человекочитаемое имя задачи
+    runs-on: ubuntu-latest # Указывает, на какой машине будет выполняться задача
+    steps:
+      - name: Checkout # Новый шаг для проверки репозитория
+        uses: actions/checkout@v4.2.2
+        
+      - name: Display files in tree structure # Новый шаг для вывода файлов
+        run: tree
+      
+      - run: |
+          echo "Hello world, from ${{ github..actor }}."
+          echo "Current branch is '${{ github.ref }}'.”
